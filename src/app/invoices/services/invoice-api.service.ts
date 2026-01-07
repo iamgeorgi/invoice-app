@@ -1,12 +1,12 @@
 import { inject, Injectable } from "@angular/core";
 import { HttpService } from "../../core/services/http.service";
+import { Invoice } from "../models/invoice.model";
 
 @Injectable({ providedIn: 'root' })
 export class InvoiceApiService {
   http = inject(HttpService);
 
   getInvoices() {
-    // Should include Invoice[] model
-    return this.http.get<any>('/assets/data/data.json');
+    return this.http.get<Invoice[]>('/assets/data/data.json');
   }
 }
